@@ -1,4 +1,4 @@
-# qlt-etf-single-swing-v1
+# qlt-rl-etf-single-swing
 
 ETF single swing 전략의 학습, 백테스트, 랭킹 추론을 위한 독립 프로젝트입니다.
 
@@ -18,7 +18,7 @@ ETF single swing 전략의 학습, 백테스트, 랭킹 추론을 위한 독립 
 ## 설치
 
 ```bash
-cd qlt-etf-single-swing-v1
+cd qlt-rl-etf-single-swing
 python -m venv .venv
 source .venv/bin/activate
 pip install -e .
@@ -55,8 +55,8 @@ qlt-etf-train \
   --trading-method swing \
   --network-type mamba \
   --episodes 300 \
-  --output-dir output/train/etf-swing-v1 \
-  --log-dir output/train/etf-swing-v1
+  --output-dir output/train/etf-swing \
+  --log-dir output/train/etf-swing
 ```
 
 학습 결과 모델은 `policy_best.pt`, `value_best.pt` 형태로 저장됩니다.
@@ -66,7 +66,7 @@ qlt-etf-train \
 ```bash
 qlt-etf-backtest \
   --dataset etf_api_20260607 \
-  --model /absolute/path/to/etf-swing-v1
+  --model /absolute/path/to/etf-swing
 ```
 
 `--model`은 절대경로 모델 디렉토리 또는 `models/` 하위 이름 둘 다 받을 수 있습니다.
@@ -77,7 +77,7 @@ qlt-etf-backtest \
 
 ```bash
 qlt-etf-predict \
-  --model /absolute/path/to/etf-swing-v1 \
+  --model /absolute/path/to/etf-swing \
   --api-token "$QUANTYLAB_API_KEY"
 ```
 
@@ -85,14 +85,14 @@ qlt-etf-predict \
 
 ```bash
 qlt-etf-predict \
-  --model /absolute/path/to/etf-swing-v1 \
+  --model /absolute/path/to/etf-swing \
   --dataset etf_api_20260607
 ```
 
 ## 디렉토리 구조
 
 ```text
-qlt-etf-single-swing-v1/
+qlt-rl-etf-single-swing/
 ├── pyproject.toml
 ├── README.md
 ├── data/
