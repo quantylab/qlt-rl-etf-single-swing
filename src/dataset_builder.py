@@ -312,14 +312,14 @@ def build_dataset_from_api(
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build ETF single swing dataset from Quantylab REST API.")
     parser.add_argument("--output-dir", required=True)
-    parser.add_argument("--token", default=os.environ.get("QUANTYLAB_API_KEY"))
+    parser.add_argument("--token", default=os.environ.get("QUANTYLAB_API_TOKEN"))
     parser.add_argument("--start-date", required=True)
     parser.add_argument("--end-date", default=None)
     parser.add_argument("--codes", nargs="*", default=None)
     args = parser.parse_args()
 
     if not args.token:
-        parser.error("--token or QUANTYLAB_API_KEY is required")
+        parser.error("--token or QUANTYLAB_API_TOKEN is required")
 
     result = build_dataset_from_api(
         output_dir=args.output_dir,

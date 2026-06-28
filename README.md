@@ -27,7 +27,7 @@ pip install -e .
 ## 환경변수
 
 ```bash
-export QUANTYLAB_API_KEY=...
+export QUANTYLAB_API_TOKEN=...
 ```
 
 ## 1. 데이터셋 생성
@@ -78,7 +78,7 @@ qlt-etf-backtest \
 ```bash
 qlt-etf-predict \
   --model /absolute/path/to/etf-swing \
-  --api-token "$QUANTYLAB_API_KEY"
+  --api-token "$QUANTYLAB_API_TOKEN"
 ```
 
 또는 기존 데이터셋으로도 가능합니다.
