@@ -241,7 +241,7 @@ def main():
     )
     parser.add_argument("--model", required=True, help="Model directory name under models/ or absolute path")
     parser.add_argument("--dataset", default=None, help="Dataset directory name under data/")
-    parser.add_argument("--api-token", default=os.environ.get("QUANTYLAB_API_KEY"))
+    parser.add_argument("--api-token", default=os.environ.get("QUANTYLAB_API_TOKEN"))
     parser.add_argument("--end-date", default=None)
     parser.add_argument("--lookback", type=int, default=1)
     parser.add_argument("--top-n", type=int, default=10)
@@ -259,7 +259,7 @@ def main():
         env_data, training_data, etf_codes = load_dataset(data_dir)
     else:
         if not args.api_token:
-            parser.error("--dataset or --api-token/QUANTYLAB_API_KEY is required")
+            parser.error("--dataset or --api-token/QUANTYLAB_API_TOKEN is required")
         env_data, training_data, etf_codes = load_live_snapshot(
             api_token=args.api_token,
             end_date=args.end_date,
